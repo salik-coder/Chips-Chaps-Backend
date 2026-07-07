@@ -1,0 +1,23 @@
+# Node dependencies (bahut badi folder hai, isko ignore karo)
+node_modules/
+
+# Environment variables (isME SECRET hai - password etc.)
+.env
+
+# Uploaded files (images jo upload hongi)
+uploads/
+
+# Logs files
+logs/
+*.log
+
+# OS files (yeh unnecessary hain)
+.DS_Store
+Thumbs.db
+
+# IDE files (VS Code, IntelliJ etc.)
+.vscode/
+.idea/
+
+# Package lock (optional, but safe to ignore)
+package-lock.json
