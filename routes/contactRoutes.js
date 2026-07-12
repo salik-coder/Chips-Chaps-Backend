@@ -2,8 +2,6 @@ const express = require("express");
 const router = express.Router();
 const nodemailer = require("nodemailer");
 const Contact = require("../models/Contact");  // ✅ NAYA - Model import
-const { testEmail } = require("../controllers/contactController");
-router.get("/test-email", testEmail);
 
 router.post("/", async (req, res) => {
     try {
