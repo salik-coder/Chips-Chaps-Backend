@@ -112,10 +112,35 @@ const deleteMessage = async (req, res) => {
     }
 };
 
+// ✅ Test email route
+const testEmail = async (req, res) => {
+    try {
+        const transporter = nodemailer.createTransport({
+            service: "gmail",
+            auth: {
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS,
+            },
+        });
+        await transporter.sendMail({
+            from: process.env.EMAIL_USER,
+            to: process.env.EMAIL_TO,
+            subject: "Test Email from ChipsChaps",
+            text: "If you're reading this, email is working! 🚀",
+        });
+        res.json({ success: true, message: "Test email sent!" });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+};
+
+
+
 module.exports = {
     submitContact,
     getMessages,
     getMessageById,
     markAsRead,
     deleteMessage,
+    testEmail,
 };
